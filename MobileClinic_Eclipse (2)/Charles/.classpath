@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/jackson-core-2.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-databind-2.9.1.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-dataformat-csv-2.9.1.jar"/>
+	<classpathentry kind="lib" path="lib/json-simple-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="lib/selenium-server-standalone-3.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/starter_new.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
