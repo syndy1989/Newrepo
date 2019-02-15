@@ -1,2 +1,0 @@
-  PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
-  PID PR CPU% S  #THR     VSS     RSS PCY UID      Name
