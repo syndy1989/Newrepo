@@ -1,0 +1,69 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `create_SR_number`()
+LANGUAGE SQL
+NOT DETERMINISTIC
+CONTAINS SQL
+SQL SECURITY DEFINER
+COMMENT ''
+BEGIN
+    DECLARE SR_number_val varchar(30);
+   
+     declare srvalue int(10);
+      DECLARE padded_id varchar(30);
+
+    
+    IF NOT EXISTS(SELECT sr.srID from srrequesttable sr order by sr.created_date desc limit 1) THEN
+ 	 set SR_number_val = 'SR0001';
+ 	 else
+ 		SELECT sr.srID into srvalue from srrequesttable sr order by sr.created_date desc limit 1;
+ 		 set padded_id = lpad(srvalue+1,4,'0');
+ 		  set SR_number_val = concat('SR',padded_id);
+ 
+    END IF;
+   
+	select SR_number_val;
+   
+END
+
+
+
+
+CREATE TABLE `srrequesttable` (
+	`srID` INT(11) NOT NULL AUTO_INCREMENT,
+	`srRequestId` VARCHAR(50) NOT NULL,
+	`srReqPath` VARCHAR(150) NOT NULL,
+	`status` VARCHAR(20) NOT NULL,
+	`created_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`fileName` VARCHAR(100) NULL DEFAULT NULL,
+	`pid` VARCHAR(15) NULL DEFAULT NULL,
+	PRIMARY KEY (`srID`)
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=228;
+
+
+
+
+public static String licenseStartTime = "2018-04-10";
+       public static int licenseDuration = 20;
+
+// Set the Timeout
+              Date setMaxTime = new Date();
+              SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+              try {
+                     setMaxTime = sdf.parse(licenseStartTime);
+              } catch (ParseException e) {
+                     // TODO Auto-generated catch block
+                     e.printStackTrace();
+              }
+              translateButton.setEnabled(true);
+
+              // Check for License
+              Calendar calSetMaxTime = Calendar.getInstance();
+              calSetMaxTime.setTime(setMaxTime);
+              calSetMaxTime.add(Calendar.DAY_OF_MONTH, licenseDuration);
+              Calendar calCurrentTime = Calendar.getInstance();
+
+       /*     if (calCurrentTime.after(calSetMaxTime)) {
+                     translateButton.setEnabled(false);
+              }*/
